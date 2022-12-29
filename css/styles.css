@@ -1,0 +1,29 @@
+@import "./base/normalize.css";
+@import "./base/reset.css";
+.section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @media screen and (min-width: 960px) {
+    padding-top: 30px;
+    padding-bottom: 304px;
+  }
+}
+
+.container {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
+  @media screen and (min-width: 280px) {
+    width: 280px;
+  }
+  @media screen and (min-width: 680px) {
+    width: 680px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @media screen and (min-width: 960px) {
+    width: 960px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

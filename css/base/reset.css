@@ -1,0 +1,26 @@
+:root {
+  --primary-text-color: #757575;
+  --title-text-color: #212121;
+}
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.list {
+  list-style: none;
+  padding-inline-start: 0;
+}
+.link {
+  text-decoration: none;
+}
