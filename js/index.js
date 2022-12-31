@@ -1,14 +1,18 @@
-import { markup } from "./markup.js";
-const trendList = document.querySelector(".trend-gallery");
-const newestList = document.querySelector(".newest-gallery");
+import { createList } from "./createList.js";
+import { getRefs } from "./getRefs.js";
+const LOCALSTORAGE_KEY = "checked-images";
 
-async function getImages() {
+const refs = getRefs();
+
+let storage = [];
+
+const getImages = async () => {
   const response = await fetch("../db/data.json");
   if (!response.ok) {
     throw new Error(response.status);
   }
   return response.json();
-}
+};
 
 getImages()
   .then((result) => {
@@ -18,11 +22,26 @@ getImages()
     const newestImages = [...result]
       .sort((a, b) => a.age - b.age)
       .filter((_, idx) => idx < 2);
-    const trendMarkup = trendImages.map((image) => markup(image)).join("");
-    trendList.insertAdjacentHTML("beforeend", trendMarkup);
-    const newestMarkup = newestImages.map((image) => markup(image)).join("");
-    newestList.insertAdjacentHTML("beforeend", newestMarkup);
+    createList(refs.trendList, trendImages);
+    createList(refs.newestList, newestImages);
   })
   .catch((error) => {
     console.log(error);
   });
+
+refs.trendList.addEventListener("click", onClick);
+refs.newestList.addEventListener("click", onClick);
+function onClick(e) {
+  storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
+  const el = e.target;
+  if (!el.classList.contains("checked")) {
+    storage.push(el.id);
+    el.classList.add("checked");
+  } else {
+    el.classList.remove("checked");
+    const idx = storage.indexOf(e.target.id);
+    storage.splice(idx, 1);
+  }
+  location.reload();
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(storage));
+}
