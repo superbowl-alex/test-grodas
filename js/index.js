@@ -31,6 +31,7 @@ getImages()
 
 refs.trendList.addEventListener("click", onClick);
 refs.newestList.addEventListener("click", onClick);
+
 function onClick(e) {
   storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
   const el = e.target;

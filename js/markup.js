@@ -15,6 +15,6 @@ export const markup = ({ image, title, tags, id }) => {
       <svg class="gallery__star">
         <use href="../assets/icons/symbol-defs.svg#icon-star-regular"></use>
       </svg>
-</div>    
+  </div>    
     </li>`;
 };
