@@ -7,7 +7,7 @@ const refs = getRefs();
 let storage = [];
 
 const getImages = async () => {
-  const response = await fetch("/db/data.json");
+  const response = await fetch("../db/data.json");
   console.log(response);
   if (!response.ok) {
     throw new Error(response.status);
