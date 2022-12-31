@@ -12,6 +12,7 @@ export const createList = (el, arr) => {
   const arrNode = el.children;
   for (const e of arrNode) {
     const elSvg = e.querySelector(".gallery__star");
+    elSvg.innerHTML = "";
     if (storage.includes(e.id)) {
       e.classList.add("checked");
       elSvg.innerHTML =
