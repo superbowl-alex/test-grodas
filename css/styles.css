@@ -214,5 +214,6 @@
     background-image: url("../assets/images/loading.jpg");
     background-position: 50% 50%;
     background-size: cover;
+    pointer-events: none;
   }
 }
