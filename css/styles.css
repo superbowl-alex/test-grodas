@@ -25,6 +25,7 @@
   font-size: 24px;
   color: #424242;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
 .gallery__item {
@@ -216,7 +217,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 50%;
+    top: 320px;
     width: 30px;
     height: 100px;
     background-color: #ffffff;
