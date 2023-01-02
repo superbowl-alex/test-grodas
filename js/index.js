@@ -3,6 +3,11 @@ import { createList } from "./createList.js";
 import { getRefs } from "./getRefs.js";
 const LOCALSTORAGE_KEY = "checked-images";
 
+const mask = document.querySelector(".mask");
+window.addEventListener("load", () => {
+  mask.remove();
+});
+
 const refs = getRefs();
 
 let storage;
