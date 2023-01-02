@@ -7,20 +7,22 @@ let storage;
 storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
 
 export const createList = (el, arr) => {
+  el.innerHTML = "";
   const currentMarkup = arr.map((item) => markup(item)).join("");
   el.insertAdjacentHTML("beforeend", currentMarkup);
   const arrNode = el.children;
   for (const e of arrNode) {
     const elSvg = e.querySelector(".gallery__star");
-    elSvg.innerHTML = "";
-    if (storage.includes(e.id)) {
-      e.classList.add("checked");
-      elSvg.innerHTML =
-        '<use href="../assets/icons/symbol-defs.svg#icon-star-solid"></use>';
-    } else {
-      e.classList.remove("checked");
-      elSvg.innerHTML =
-        '<use href="../assets/icons/symbol-defs.svg#icon-star-regular"></use>';
+    if (elSvg) {
+      if (storage.includes(e.id)) {
+        e.classList.add("checked");
+        elSvg.innerHTML =
+          '<use href="../assets/icons/symbol-defs.svg#icon-star-solid"></use>';
+      } else {
+        e.classList.remove("checked");
+        elSvg.innerHTML =
+          '<use href="../assets/icons/symbol-defs.svg#icon-star-regular"></use>';
+      }
     }
   }
 };
