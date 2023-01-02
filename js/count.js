@@ -1,31 +1,30 @@
-// const arr = document.children;
-// console.log(arr);
-// console.log(arr[0].children);
-// const count = document.getElementsByTagName("*").length;
-// console.log(count);
-// function countChildrenNumber(el) {
-//   let result = 0;
-//   if (el.children && el.children.length > 0) {
-//     result = result + el.children.length;
-//     for (let i = 0; i < el.children.length; i++) {
-//       result = result + countChildrenNumber(el.children[i]);
-//     }
-//   }
-//   return result;
-// }
-
-// console.log(countChildrenNumber(document));
-
 export const countElements = () => {
-  let output = [];
+  let elements = [];
   document.querySelectorAll("*").forEach((node) => {
-    output.push(node.nodeName.toLowerCase());
+    elements.push(node.nodeName.toLowerCase());
   });
-  console.log(output);
+
+  let elementsByTagName = {};
+  elements.forEach((el) => {
+    elementsByTagName[el] = elementsByTagName[el] + 1 || 1;
+  });
+
+  let elementsByTagLength = {};
+  elements.forEach((el) => {
+    elementsByTagLength[el.length] = elementsByTagLength[el.length] + 1 || 1;
+  });
+
+  const sortedElementsByTagName = Object.entries(elementsByTagName).sort(
+    (a, b) => b[1] - a[1]
+  );
+
+  const arrayCountTag = Object.entries(elementsByTagLength);
+
+  console.log("Загальна кількість елементів у DOM-дереві: ", elements.length);
+  console.log("Елементи DOM-дерева, згруповані за назвою тега:");
+  sortedElementsByTagName.forEach((el) => console.log(el[0], el[1]));
+  console.log(
+    "Елементи DOM-дерева, згруповані за кількістю символів у назві тегу:"
+  );
+  arrayCountTag.forEach((el) => console.log(el[0], el[1]));
 };
-
-// const sortBy = (key) => {
-//   return (a, b) => (a[key] > b[key] ? -1 : b[key] > a[key] ? 1 : 0);
-// };
-
-// console.log(output.sort(sortBy("count")));
