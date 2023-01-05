@@ -53,6 +53,8 @@ function onClick(e) {
     storage.splice(idx, 1);
   }
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(storage));
+  // createList(refs.trendList, trendImages);
+  // createList(refs.newestList, newestImages);
 
   location.reload();
 }
