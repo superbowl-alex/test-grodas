@@ -44,17 +44,13 @@ refs.newestList.addEventListener("click", onClick);
 function onClick(e) {
   storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
   const el = e.target;
-  if (!el.classList.contains("checked")) {
+  if (!storage.includes(el.id)) {
     storage.push(el.id);
-    el.classList.add("checked");
   } else {
-    el.classList.remove("checked");
     const idx = storage.indexOf(el.id);
     storage.splice(idx, 1);
   }
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(storage));
-  // createList(refs.trendList, trendImages);
-  // createList(refs.newestList, newestImages);
-
-  location.reload();
+  createList(refs.trendList, trendImages);
+  createList(refs.newestList, newestImages);
 }

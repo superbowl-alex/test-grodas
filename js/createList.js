@@ -3,10 +3,9 @@ import { markup } from "./markup.js";
 const LOCALSTORAGE_KEY = "checked-images";
 const refs = getRefs();
 
-let storage;
-storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
-
 export const createList = (el, arr) => {
+  const storage = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY)) || [];
+
   el.innerHTML = "";
   const currentMarkup = arr.map((item) => markup(item)).join("");
   el.insertAdjacentHTML("beforeend", currentMarkup);
