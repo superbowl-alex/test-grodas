@@ -200,8 +200,8 @@
 @media screen and (min-width: 960px) {
   .container {
     width: 960px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 55px;
+    padding-right: 55px;
   }
   .section {
     padding-top: 30px;
@@ -223,12 +223,12 @@
     gap: 20px;
   }
   .gallery__item {
-    width: 280px;
-    height: 280px;
+    width: 270px;
+    height: 270px;
   }
   .trend .gallery__item:first-child {
-    width: 580px;
-    height: 580px;
+    width: 560px;
+    height: 560px;
   }
   .trend .gallery__item:nth-child(n + 4) {
     display: none;
@@ -260,7 +260,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 320px;
+    top: 310px;
     width: 30px;
     height: 100px;
     background-color: #ffffff;
@@ -268,11 +268,11 @@
   }
 
   .leftArrow {
-    left: -40px;
+    left: -36px;
   }
 
   .rightArrow {
-    right: -40px;
+    right: -36px;
   }
 
   .leftArrow:hover,
@@ -305,7 +305,7 @@
     top: 78px;
     right: 0;
     display: block;
-    width: 280px;
+    width: 270px;
     height: 400px;
     background-image: url("../assets/images/loading.jpg");
     background-position: 50% 50%;
